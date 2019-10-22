@@ -126,7 +126,7 @@ public class UserServiceImple implements UserService {
             PageHelper.startPage(pageIndex,pageSizeInt);
             return userDAO.getUserList(cUserName);
         }catch (Exception e){
-            log.debug("UserController-->>getUserList",e);
+            log.debug("UserServiceImpl-->>getUserList",e);
         }
         return null;
     }

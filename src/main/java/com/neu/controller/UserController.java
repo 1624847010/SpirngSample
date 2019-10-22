@@ -140,7 +140,7 @@ public class UserController {
         try {
             //获取用户列表
             List<UserVO> userVOList = userService.getUserList(cUserName,pageNum,pageSize);
-            return BaseResponse.generateOKResponseEntity(new PageInfo(userVOList));
+            return BaseResponse.generateOKListResponseEntity(userVOList);
         }catch (Exception e){
             log.debug("UserController-->>getUserList",e);
             return BaseResponse.generateBadResponseEntity(500,"服务器内部错误","");
