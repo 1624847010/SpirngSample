@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.dao.UserDAO">
+    <!--代码编写处-->
+    <!--    根据用户名获取用户信息-->
+    <select id="getUserByName" resultType="UserVO">
+        select cId,cUserName,cPwd
+        from userinfo
+        where cUserName=#{cUserName}
+    </select>
+<!--    新增用户-->
+    <insert id="addUser">
+        insert into userinfo values (#{UserVo.cId},#{UserVo.cUserName},#{UserVo.cPwd});
+    </insert>
+<!--    删除用户-->
+    <delete id="delUser">
+        delete from userinfo
+        where cId=#{cId}
+    </delete>
+<!--    根据用户id获取用户信息-->
+    <select id="getUserById" resultType="UserVO">
+        select cId,cUserName,cPwd
+         from userinfo
+         where cId=#{cId}
+    </select>
+<!--    更新用户信息-->
+    <update id="updateUser">
+        update userinfo
+        set cUserName=#{cUserName},cPwd=#{cPwd}
+        where cId=#{cId}
+    </update>
+<!--    分页查询-->
+    <select id="getUserList" resultType="UserVO">
+        select cId,cUserName,cPwd
+        from userinfo
+        <if test="cUserName != null and cUserName!=''">
+            where cUserName like concat('%',#{cUserName},'%')
+        </if>
+    </select>
+</mapper>
