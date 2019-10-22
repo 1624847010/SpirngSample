@@ -11,13 +11,13 @@ public class IDUtil {
      * @return String ID（32位）
      */
     public static String getID() {
-// 创建 GUID 对象
+    // 创建 GUID 对象
         UUID uuid = UUID.randomUUID();
-// 得到对象产生的ID
+    // 得到对象产生的ID
         String a = uuid.toString();
-// 转换为大写
+    // 转换为大写
         a = a.toUpperCase();
-// 替换 -
+    // 替换 -
         a = a.replaceAll("-", "");
         return a;
     }

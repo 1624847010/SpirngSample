@@ -24,7 +24,11 @@ public class UserController {
     @Autowired
     private UserService userService;
     private final Log log = LogFactory.getLog(getClass());
-
+    /**
+    　　* @description: 用户登陆
+    　　* @author ll
+    　　* @date 2019/10/22 8:40
+    　　*/
     @ApiOperation(value = "登陆",notes = "用户登陆")
     @PostMapping("/login")
     public ResponseEntity<BaseResponse<UserVO>> login(@RequestBody UserVO user) throws Exception{
@@ -44,6 +48,11 @@ public class UserController {
             }
         }
     }
+    /**
+    　　* @description: 添加用户
+    　　* @author ll
+    　　* @date 2019/10/22 8:40
+    　　*/
     @ApiOperation(value = "添加用户",notes = "添加用户")
     @PostMapping(value = "/addUser")
     public ResponseEntity<BaseResponse<UserVO>> addUser(HttpServletRequest request,@RequestBody UserVO userinfoVO){
@@ -65,6 +74,11 @@ public class UserController {
             return BaseResponse.generateBadResponseEntity(500,"服务器内部错误","");
         }
     }
+    /**
+    　　* @description: 删除用户
+    　　* @author ll
+    　　* @date 2019/10/22 8:40
+    　　*/
     @ApiOperation(value = "删除用户",notes = "删除用户")
     @PostMapping(value = "/delUser")
     public ResponseEntity<BaseResponse<UserVO>> delUser(HttpServletRequest request,@RequestBody UserVO userVO){
@@ -80,7 +94,11 @@ public class UserController {
             return BaseResponse.generateBadResponseEntity(500,"服务器内部错误","");
         }
     }
-
+/**
+　　* @description: 查询用户信息
+　　* @author ll
+　　* @date 2019/10/22 8:41
+　　*/
     @ApiOperation(value = "查询用户信息",notes = "查询用户信息")
     @GetMapping(value = "/getUserInfo")
     public ResponseEntity<BaseResponse<UserVO>> getUserInfo(HttpServletRequest request,@RequestParam("cId") String cId){
@@ -91,6 +109,11 @@ public class UserController {
             return BaseResponse.generateBadResponseEntity(500,"服务器内部错误","");
         }
     }
+    /**
+    　　* @description: 修改用户
+    　　* @author ll
+    　　* @date 2019/10/22 8:41
+    　　*/
     @ApiOperation(value = "修改用户",notes = "修改用户")
     @PostMapping(value = "/updateUser")
     public ResponseEntity<BaseResponse<UserVO>> updateUser(HttpServletRequest request,@RequestBody UserVO userVO){
@@ -106,6 +129,11 @@ public class UserController {
             return BaseResponse.generateBadResponseEntity(500,"服务器内部错误","");
         }
     }
+    /**
+    　　* @description: 分页查询用户
+    　　* @author ll
+    　　* @date 2019/10/22 8:41
+    　　*/
     @ApiOperation(value = "分页查询用户",notes = "分页查询用户")
     @GetMapping(value = "/getUserList")
     public ResponseEntity<BaseResponse<UserVO>> getUserList(@RequestParam("cUserName") String cUserName,@RequestParam("pageNum") String pageNum,@RequestParam("pageSize") String pageSize){

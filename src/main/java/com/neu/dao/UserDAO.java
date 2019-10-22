@@ -17,7 +17,7 @@ public interface UserDAO {
      * @return
      * @throws Exception
      */
-    public UserVO getUserByName(@Param("cUserName")String cUserName) throws Exception;
+    public UserVO getUserByName(@Param("cUserName")String cUserName);
 
     /**
      * 新增用户

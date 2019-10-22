@@ -18,8 +18,12 @@ import java.util.List;
 public class UserServiceImple implements UserService {
     @Autowired
     private UserDAO userDAO;
-
     private final Log log = LogFactory.getLog(getClass());
+    /**
+    　　* @description: 根据用户名查询用户信息
+    　　* @author ll
+    　　* @date 2019/10/22 8:44
+    　　*/
     @Override
     public UserVO getUserByName(String cUserName) throws Exception {
         try {
@@ -29,7 +33,11 @@ public class UserServiceImple implements UserService {
         }
         return null;
     }
-
+    /**
+    　　* @description: 添用户
+    　　* @author ll
+    　　* @date 2019/10/22 8:45
+    　　*/
     @Override
     public int addUser(UserVO userVO) throws Exception {
         try {
@@ -39,7 +47,11 @@ public class UserServiceImple implements UserService {
         }
         return 0;
     }
-
+/**
+　　* @description: 判断用户名是否重复
+　　* @author ll
+　　* @date 2019/10/22 8:45
+　　*/
     @Override
     public boolean isUserName(String cUserName) throws Exception {
         try {
@@ -54,7 +66,11 @@ public class UserServiceImple implements UserService {
             return true;
         }
     }
-
+    /**
+    　　* @description: 删除用户
+    　　* @author ll
+    　　* @date 2019/10/22 8:46
+    　　*/
     @Override
     public int delUser(String cId) throws Exception {
         try {
@@ -64,7 +80,11 @@ public class UserServiceImple implements UserService {
         }
         return 0;
     }
-
+    /**
+    　　* @description: 根据id获取用户信息
+    　　* @author ll
+    　　* @date 2019/10/22 8:46
+    　　*/
     @Override
     public UserVO getUserById(String cId) throws Exception {
         try {
@@ -74,7 +94,11 @@ public class UserServiceImple implements UserService {
         }
         return null;
     }
-
+    /**
+    　　* @description: 修改用户信息
+    　　* @author ll
+    　　* @date 2019/10/22 8:46
+    　　*/
     @Override
     public int updateUser(UserVO userVO) throws Exception {
         int flag =0;
@@ -89,7 +113,11 @@ public class UserServiceImple implements UserService {
         }
         return flag;
     }
-
+    /**
+    　　* @description: 分页查询用户列表
+    　　* @author ll
+    　　* @date 2019/10/22 8:46
+    　　*/
     @Override
     public List<UserVO> getUserList(String cUserName, String pageNum, String pageSize) throws Exception {
         try {
