@@ -2,7 +2,6 @@ package com.neu.service;
 
 import com.github.pagehelper.PageHelper;
 import com.neu.dao.UserDAO;
-import com.neu.util.BaseResponse;
 import com.neu.vo.UserVO;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -104,7 +103,7 @@ public class UserServiceImple implements UserService {
         int flag =0;
         try {
             UserVO userByName = userDAO.getUserByName(userVO.getcUserName());
-            if (userByName != null && userByName.getcId().equals(userVO.getcId())) {
+            if (userByName != null && !userByName.getcId().equals(userVO.getcId())) {
                 return flag;
             }
             flag = userDAO.updateUser(userVO);
@@ -121,9 +120,7 @@ public class UserServiceImple implements UserService {
     @Override
     public List<UserVO> getUserList(String cUserName, String pageNum, String pageSize) throws Exception {
         try {
-            int pageIndex = (Integer.parseInt(pageNum)-1)*Integer.parseInt(pageSize);
-            int pageSizeInt = Integer.parseInt(pageSize);
-            PageHelper.startPage(pageIndex,pageSizeInt);
+            PageHelper.startPage(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
             return userDAO.getUserList(cUserName);
         }catch (Exception e){
             log.debug("UserServiceImpl-->>getUserList",e);

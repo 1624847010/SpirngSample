@@ -1,6 +1,5 @@
 package com.neu.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.neu.service.UserService;
 import com.neu.util.BaseResponse;
 import com.neu.util.IDUtil;
