@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neu.dao.ShopDao">
+
+    <select id="getGoodsList" resultType="com.neu.vo.Shop">
+        select id,title,content,imgPath,price
+        from t_goods
+        <if test="title != null and title!=''">
+            where title like concat('%',#{title},'%')
+        </if>
+    </select>
+
+    <insert id="addGoods">
+        insert into t_goods(title,imgPath,price)
+        values (#{title},#{imgPath},#{price})
+    </insert>
+
+    <delete id="delGoods">
+        delete from t_goods
+        where id = #{id}
+    </delete>
+
+    <update id="updateGoods">
+        update t_goods
+        set id = id
+        <if test="title != null">
+            ,title=#{title}
+        </if>
+        <if test="imgPath != null">
+            ,imgPath=#{imgPath}
+        </if>
+        <if test="price != null">
+            ,price=#{price}
+        </if>
+        where id = #{id}
+    </update>
+</mapper>
